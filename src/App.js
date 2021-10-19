@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import GuessedWord from "./components/GuessedWord/GuessedWord";
-
+import Form from "./components/Form/Form";
 import HangmanPicture from "./components/HangmanPicture/HangmanPicture";
 
 function App() {
   const [wrongLetters, setWrongLetters] = useState(["A", "B", "k", "p"]);
+
   const linesSVG = [
     <line class="stage1" x1="16" y1="80" x2="32" y2="80"></line>,
     <line class="stage2" x1="24" y1="80" x2="24" y2="16"></line>,
@@ -26,6 +27,12 @@ function App() {
     { letter: "a", guessed: true },
   ]);
 
+  const getValueFromForm = () => {
+    console.log("patata");
+    const letterValue = document.querySelector(".form-letter").value;
+    console.log(letterValue);
+  };
+
   return (
     <>
       <div className="svg">
@@ -36,7 +43,7 @@ function App() {
           />
         </svg>
       </div>
-
+      <Form buttonText="Adivinar" actionOnClick={getValueFromForm} />
       <div className="word">
         <ul className="word__list">
           {word.map((letter) => (
