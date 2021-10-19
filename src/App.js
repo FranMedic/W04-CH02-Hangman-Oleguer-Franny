@@ -28,7 +28,7 @@ function App() {
     <line key="11" className="stage11" x1="62" y1="70" x2="56" y2="56"></line>,
   ];
 
-  const currentWord = "PAQUITO";
+  const currentWord = "PAQUITO".toUpperCase();
 
   const [word, setWord] = useState(
     currentWord.split("").map((letter) => ({ letter, guessed: false }))
@@ -47,8 +47,10 @@ function App() {
   const getValueFromForm = (event) => {
     event.preventDefault();
 
-    const letterValue = document.querySelector(".form-letter").value;
-
+    const letterValue = document
+      .querySelector(".form-letter")
+      .value.toUpperCase();
+    document.querySelector(".form-letter").value = "";
     if (currentWord.includes(letterValue)) {
       modCurrentWord(letterValue);
     } else {
