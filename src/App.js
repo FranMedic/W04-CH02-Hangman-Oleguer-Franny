@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import GuessedWord from "./components/GuessedWord/GuessedWord";
-import { useState } from "react";
-import HangmanPicture from "./components/HangmanPicture/HangmanPicture";
 
+import HangmanPicture from "./components/HangmanPicture/HangmanPicture";
 
 function App() {
   const [wrongLetters, setWrongLetters] = useState(["A", "B", "k", "p"]);
@@ -27,10 +26,9 @@ function App() {
     { letter: "a", guessed: true },
   ]);
 
-
   return (
     <>
-    <div className="svg">
+      <div className="svg">
         <svg className="hangman" viewBox="0 0 96 96" width="300" height="300">
           <HangmanPicture
             linesSVG={linesSVG}
@@ -38,9 +36,7 @@ function App() {
           />
         </svg>
       </div>
-    
-    
-      <Form text="Enviar" actionOnClick={patata} />
+
       <div className="word">
         <ul className="word__list">
           {word.map((letter) => (
