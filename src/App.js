@@ -11,8 +11,8 @@ function App() {
   ]);
   return (
     <>
-      <div class="word">
-        <ul class="word__list">
+      <div className="word">
+        <ul className="word__list">
           {word.map((letter) => (
             <LetterBox letter={letter.letter} guessed={letter.guessed} />
           ))}
