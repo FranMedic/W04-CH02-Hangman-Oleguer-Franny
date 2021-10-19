@@ -49,8 +49,12 @@ function App() {
 
       <div className="word">
         <ul className="word__list">
-          {word.map((letter) => (
-            <GuessedWord letter={letter.letter} guessed={letter.guessed} />
+          {word.map((letter, index) => (
+            <GuessedWord
+              key={index}
+              letter={letter.letter}
+              guessed={letter.guessed}
+            />
           ))}
         </ul>
       </div>
