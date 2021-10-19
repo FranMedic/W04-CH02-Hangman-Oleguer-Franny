@@ -1,6 +1,37 @@
 Componentes:
 
 App:
-  -
+  -crea array de palabras
+  -array objetosSVG
+  -array letras falladas
+  -funcion del actionOnclick de Form 
+    + compara el array de objeto de la palabra con la letra recibida del form 
+    +si es false añade a letras falladas y si es true modifica el array de objetos palabra
+    + Y compara la palabra recibida si existe 
+  -crea y mantiene un array de objetos basados en la palabra del juego
+
+
+  comparar cada letra de ña 
+
+HangmanPicture
+   -renderizar partes del dibujo svg 
+   -recibe array de objetos con las atributos de cada linea 
+
+LetterBox
+  - redenriza las letras recibidas 
+
+Form 
+  -redenrizar input letter e input word, y un submit 
+  - boton submit llama a una funcion cuando se hace submit 
+
+GuessedWord
+recibir array de objetos word con propiedades letter:string y guessed:boolean
+render de cada letra añadiendo la letra o no segun la propiedad guessed 
+
+
+
+
+
+
 
 
