@@ -1,6 +1,7 @@
 //import { useState } from "react";
 import "./App.css";
 import GuessedWord from "./components/GuessedWord/GuessedWord";
+import Form from "./components/Form/Form";
 import HangmanPicture from "./components/HangmanPicture/HangmanPicture";
 import LetterBox from "./components/LetterBox/LetterBox";
 
@@ -49,6 +50,12 @@ function App() {
     { letter: "a", guessed: true },
   ];
 
+  const getValueFromForm = (e) => {
+    e.preventDefault();
+    const letterValue = document.querySelector(".form-letter").value;
+    console.log(letterValue);
+  };
+
   return (
     <>
       <div className="svg">
@@ -59,6 +66,10 @@ function App() {
           />
         </svg>
       </div>
+      <Form
+        buttonText="Adivinar"
+        actionOnClick={(event) => getValueFromForm(event)}
+      />
       <div className="wrong-letters">
         <LetterBox wrongLetters={wrongLetters} />
       </div>
