@@ -6,7 +6,7 @@ import HangmanPicture from "./components/HangmanPicture/HangmanPicture";
 import LetterBox from "./components/LetterBox/LetterBox";
 
 function App() {
-  const [wrongLetters, setWrongLetters] = useState(["A", "B", "k", "p", "L"]);
+  const [wrongLetters, setWrongLetters] = useState([]);
   const linesSVG = [
     <line key="1" className="stage1" x1="16" y1="80" x2="32" y2="80"></line>,
     <line key="2" className="stage2" x1="24" y1="80" x2="24" y2="16"></line>,
@@ -66,10 +66,13 @@ function App() {
           />
         </svg>
       </div>
-      <Form
-        buttonText="Adivinar"
-        actionOnClick={(event) => getValueFromForm(event)}
-      />
+      <div className="form">
+        <Form
+          buttonText="Adivinar"
+          actionOnClick={(event) => getValueFromForm(event)}
+        />
+      </div>
+
       <div className="wrong-letters">
         <LetterBox wrongLetters={wrongLetters} />
       </div>
