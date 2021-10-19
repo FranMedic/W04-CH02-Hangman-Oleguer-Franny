@@ -1,4 +1,4 @@
-//import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import GuessedWord from "./components/GuessedWord/GuessedWord";
 import Form from "./components/Form/Form";
@@ -6,10 +6,8 @@ import HangmanPicture from "./components/HangmanPicture/HangmanPicture";
 import LetterBox from "./components/LetterBox/LetterBox";
 
 function App() {
-  //const [wrongLetters, setWrongLetters] = useState(["A", "B", "k", "p", "L"]);
-  // setWrongLetters(["A", "B", "k", "p", "L"]);
+  const [wrongLetters, setWrongLetters] = useState(["A", "B", "k", "p", "L"]);
 
-  const wrongLetters = ["A", "B", "k", "p", "L"];
   const linesSVG = [
     <line key="1" className="stage1" x1="16" y1="80" x2="32" y2="80"></line>,
     <line key="2" className="stage2" x1="24" y1="80" x2="24" y2="16"></line>,
@@ -30,30 +28,28 @@ function App() {
     <line key="10" className="stage10" x1="50" y1="70" x2="56" y2="56"></line>,
     <line key="11" className="stage11" x1="62" y1="70" x2="56" y2="56"></line>,
   ];
-  // const [word, setWord] = useState([
-  //   { letter: "h", guessed: true },
-  //   { letter: "o", guessed: false },
-  //   { letter: "l", guessed: true },
-  //   { letter: "a", guessed: true },
-  // ]);
 
-  // setWord([
-  //   { letter: "h", guessed: true },
-  //   { letter: "o", guessed: false },
-  //   { letter: "l", guessed: true },
-  //   { letter: "a", guessed: true },
-  // ]);
-  const word = [
-    { letter: "h", guessed: true },
-    { letter: "o", guessed: false },
-    { letter: "l", guessed: true },
-    { letter: "a", guessed: true },
-  ];
+  const currentWord = "PAQUITO";
+
+  const setCurrentWord = () => {
+    return currentWord.split("").map((letter) => ({ letter, guessed: false }));
+  };
+
+  const [word, setWord] = useState(setCurrentWord());
+  const modCurrentWord = (formLetter) => {
+    setWord(
+      word.map((letterObj) =>
+        letterObj.letter === formLetter
+          ? { ...letterObj, guessed: true }
+          : { ...letterObj }
+      )
+    );
+  };
 
   const getValueFromForm = (e) => {
     e.preventDefault();
     const letterValue = document.querySelector(".form-letter").value;
-    console.log(letterValue);
+    modCurrentWord(letterValue);
   };
 
   return (
