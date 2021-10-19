@@ -1,5 +1,5 @@
 import "./App.css";
-import LetterBox from "./components/LetterBox/LetterBox";
+import GuessedWord from "./components/GuessedWord/GuessedWord";
 import { useState } from "react";
 
 function App() {
@@ -9,12 +9,17 @@ function App() {
     { letter: "l", guessed: true },
     { letter: "a", guessed: true },
   ]);
+
+  const patata = () => {
+    console.log("Eztoy biba");
+  };
   return (
     <>
+      <Form text="Enviar" actionOnClick={patata} />
       <div className="word">
         <ul className="word__list">
           {word.map((letter) => (
-            <LetterBox letter={letter.letter} guessed={letter.guessed} />
+            <GuessedWord letter={letter.letter} guessed={letter.guessed} />
           ))}
         </ul>
       </div>

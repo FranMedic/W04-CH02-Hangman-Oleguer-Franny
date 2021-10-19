@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-const LetterBox = ({ letter, guessed }) => {
+const GuessedWord = ({ letter, guessed }) => {
   return <li>{letter}</li>;
 };
-LetterBox.protoTypes = {
+GuessedWord.propTypes = {
   letter: PropTypes.string.isRequired,
   guessed: PropTypes.bool.isRequired,
 };
 
-export default LetterBox;
+export default GuessedWord;
